@@ -46,37 +46,54 @@ nav {
 }
 
 .page {
-  min-height: 90vh;
+  min-height: 88.9vh;
   display: grid;
   grid-template-columns: 5% 1fr 1fr 1fr 5%;
   /*el grid template crea una grilla de 5% a los lados
   y 3 columnas vacias con el resto del espacio */
 }
+/* para que solo quede la pagina de la fotografa*/
+.chef,
+.hairstyle {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+  opacity: 0%; /*esconde las imagenes*/
+  pointer-events: none; /*no permite clicar*/
+}
 
 .hero {
-  overflow: visible;
+  overflow: hidden; /**esto hace que se que esconda para el js*/
   height: 500px;
   /*width: 500px;*/
   align-self: center;
   justify-self: center;
   display: flex;
-  /* display flex hace que se junten las imagenes*/
+  /* display flex hace que se junten las imagenes
+  pero se daña cuando ponemos el hero a, que
+  se corrige a continuacion*/
 }
 
 /*para el movimiento de las imagenes*/
 .hero img {
-  height: 500px;
+  height: 400px;
   transition: transform 0.3s ease-out;
   cursor: pointer;
 }
+
+.hero a {
+  display: flex;
+}
+
 .model-right {
-  transform: translate(0%, 10%); /**/
+  transform: translate(0%, 8%); /**/
 }
 .hero:hover .model-right {
   transform: translate(0%, 0%);
 }
 .model-left {
-  transform: translate(0%, -10%); /**/
+  transform: translate(0%, -8%); /**/
 }
 .hero:hover .model-left {
   transform: translate(0%, 0%);
@@ -101,7 +118,7 @@ nav {
 
 .details p {
   font-size: 24px;
-  padding: 20px 0px 50px 0px;
+  padding: 10px 0px 50px 0px;
 }
 /*esto modifica los botones*/
 .pages {
@@ -264,4 +281,48 @@ es la parte responsive*/
   .details h2 {
     font-size: 28px;
   }
+}
+
+/* COmienza la parte para la barra de navegacion
+se programa la barra abierta*/
+.nav-open {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 50vh;
+  background: white;
+  z-index: 1; /*sirve para que la barra tape lo de abajo*/
+  color: black; /* muestra el texto*/
+  display: grid;
+  grid-template-columns: 5% 1fr 1fr 1fr 5%;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  transform: translateY(-100%); /*este comando esconde la barra*/
+}
+/*mueve al centro las letras*/
+.contact {
+  grid-column: 2/3;
+}
+
+.nav-open h3 {
+  font-size: 28px;
+  padding-bottom: 40px;
+}
+.nav-open p {
+  font-size: 18px;
+}
+/*esto ajusta el tamaño de las imagenes de redes sociales*/
+.social-links img {
+  padding: 0px 2px;
+}
+
+.logo,
+.menu {
+  z-index: 2;
+}
+
+.menu {
+  cursor: pointer;
 }
