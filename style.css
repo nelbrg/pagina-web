@@ -23,6 +23,8 @@ la font-family puede ser cualquier nombre*/
 /* Implementamos la fuente*/
 body {
   font-family: PopLight;
+  height: 100%;
+  margin: auto;
 }
 
 .portofolio {
@@ -32,8 +34,8 @@ body {
 }
 
 nav {
-  min-height: 10vh;
-  width: 90%;
+  /**min-height: 10vh;*/
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -42,11 +44,12 @@ nav {
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .page {
-  min-height: 88.9vh;
+  min-height: 90vh;
+  margin: auto;
   display: grid;
   grid-template-columns: 5% 1fr 1fr 1fr 5%;
   /*el grid template crea una grilla de 5% a los lados
@@ -55,9 +58,11 @@ nav {
 /* para que solo quede la pagina de la fotografa*/
 .chef,
 .hairstyle {
+  min-height: 90vh;
   position: absolute;
   bottom: 0%;
   left: 0%;
+  top: 73px;
   width: 100%;
   opacity: 0%; /*esconde las imagenes*/
   pointer-events: none; /*no permite clicar*/
@@ -65,7 +70,7 @@ nav {
 
 .hero {
   overflow: hidden; /**esto hace que se que esconda para el js*/
-  height: 500px;
+
   /*width: 500px;*/
   align-self: center;
   justify-self: center;
@@ -77,23 +82,25 @@ nav {
 
 /*para el movimiento de las imagenes*/
 .hero img {
-  height: 400px;
+  height: 300px;
   transition: transform 0.3s ease-out;
   cursor: pointer;
+  display: flex;
 }
 
 .hero a {
   display: flex;
+  align-self: center;
 }
 
 .model-right {
-  transform: translate(0%, 8%); /**/
+  transform: translate(0%, 10%);
 }
 .hero:hover .model-right {
   transform: translate(0%, 0%);
 }
 .model-left {
-  transform: translate(0%, -8%); /**/
+  transform: translate(0%, -10%);
 }
 .hero:hover .model-left {
   transform: translate(0%, 0%);
@@ -113,12 +120,12 @@ nav {
 
 .details h2 {
   font-size: 42px;
-  padding: 20px 0px;
+  padding: 30px 0px;
 }
 
 .details p {
   font-size: 24px;
-  padding: 10px 0px 50px 0px;
+  padding: 10px 0px 50px 10px;
 }
 /*esto modifica los botones*/
 .pages {
@@ -232,15 +239,17 @@ es la parte responsive*/
 @media (max-width: 1024px) {
   .page {
     grid-template-columns: 5% 1fr 5%;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
     align-items: center;
+    width: 100%;
   }
+
   .hero {
     grid-column: 2/3;
-    height: auto;
+    height: 300px;
   }
   .hero img {
-    height: 500px;
+    height: 300px;
   }
   .details {
     grid-row: 2/3;
@@ -268,18 +277,6 @@ es la parte responsive*/
   .profile {
     padding-top: 30px;
     text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero img {
-    height: 300px;
-  }
-  .details h1 {
-    font-size: 38px;
-  }
-  .details h2 {
-    font-size: 28px;
   }
 }
 
@@ -325,4 +322,67 @@ se programa la barra abierta*/
 
 .menu {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    /**height: 50%;*/
+    width: 100%;
+  }
+  .hero {
+    align-self: center;
+    display: flex;
+  }
+  .hero img {
+    height: 200px;
+    width: 100px;
+    align-self: center;
+    justify-self: center;
+    justify-items: center;
+    padding: 0px 0px 0px 0px;
+  }
+  .chef,
+  .hairstyle {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    /**top: 73px;*/
+    width: 100%;
+    opacity: 0%; /*esconde las imagenes*/
+    pointer-events: none; /*no permite clicar*/
+  }
+  .details {
+    align-self: center;
+    margin: auto;
+  }
+  .details h1 {
+    font-size: 25px;
+    padding: 0px 0px;
+  }
+  .details h2 {
+    font-size: 15px;
+    padding: 0px 0px;
+  }
+  .details p {
+    font-size: 10px;
+    padding: 0px 0px;
+  }
+  .nav-open {
+    grid-template-columns: 5% 1fr 1fr 5%;
+    align-items: center;
+  }
+
+  .nav-open h3 {
+    font-size: 18px;
+    padding: 10px 0px 10px 0px;
+  }
+  .nav-open p {
+    font-size: 16px;
+  }
+  /*esto ajusta el tamaño de las imagenes de redes sociales*/
+  .social-links img {
+    padding: 0px 2px;
+  }
 }
